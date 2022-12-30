@@ -28,8 +28,8 @@ def ask(question, chat_log=None):
       max_tokens=256,
       top_p=1,
       frequency_penalty=0.32,
-      presence_penalty=0.32
-      stop=["\n"],
+      presence_penalty=0.32,
+      stop=["\n"]
 
     )
     story = response['choices'][0]['text']
