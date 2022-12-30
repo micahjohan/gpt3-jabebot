@@ -22,14 +22,15 @@ session_prompt = session_prompt_text
 def ask(question, chat_log=None):
     prompt_text = f'{chat_log}{restart_sequence}: {question}{start_sequence}:'
     response = openai.Completion.create(
-      engine="davinci",
+      engine="text-davinci-002",
       prompt=prompt_text,
-      temperature=0.8,
-      max_tokens=150,
+      temperature=0.9,
+      max_tokens=256,
       top_p=1,
-      frequency_penalty=0,
-      presence_penalty=0.3,
+      frequency_penalty=0.32,
+      presence_penalty=0.32
       stop=["\n"],
+
     )
     story = response['choices'][0]['text']
     return str(story)
